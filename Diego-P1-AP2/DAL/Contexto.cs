@@ -13,6 +13,7 @@ namespace Diego_P1_AP2.DAL
             base.OnConfiguring(optionsBuilder);
 
 
+
             optionsBuilder.UseSqlite(@"Data Source=Data\Parcial_1.db");
         }
     }
