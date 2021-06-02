@@ -13,7 +13,7 @@ namespace Diego_P1_AP2.Models
         public int ProductoId { get; set; }
 
         [Required(ErrorMessage = "Es Obligatorio introducir la descripcion")]
-        public String Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "Es Obligatorio introducir la Existencia")]
         public int Existencia { get; set; }
