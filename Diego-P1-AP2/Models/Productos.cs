@@ -12,10 +12,13 @@ namespace Diego_P1_AP2.Models
         [Key]
         public int ProductoId { get; set; }
 
+        [Required(ErrorMessage = "Es Obligatorio introducir la descripcion")]
         public String Descripcion { get; set; }
 
+        [Required(ErrorMessage = "Es Obligatorio introducir la Existencia")]
         public int Existencia { get; set; }
 
+        [Required(ErrorMessage = "Es Obligatorio introducir el costo")]
         public float Costo { get; set; }
 
         public float ValorInventario { get; set; }
