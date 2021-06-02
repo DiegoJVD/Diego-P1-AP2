@@ -9,7 +9,7 @@ namespace Diego_P1_AP2.DAL
 {
     public class Contexto: DbContext
     {
-        public DbSet<Productos> producto { get; set; }
+        public DbSet<Productos> Producto { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
