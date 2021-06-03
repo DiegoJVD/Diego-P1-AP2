@@ -1,5 +1,6 @@
 ﻿@page "/Registro_Productos"
 
+
 @inject IToastService toast
 
 <h3>Registro_Productos</h3>
@@ -20,13 +21,13 @@
 
                     <input class="form-control" @bind="@Producto.ProductoId" />
                     <button type="button" class="btn btn-warning" @onclick="Buscar">
-                        <i class="oi oi-magnifying-glass mr-2" /> 
+                        <i class="oi oi-magnifying-glass mr-2" />
                         Buscar
                     </button>
                 </div>
 
                 <div>
-                    <label class="form-label">Descripcion</label>
+                    <label class="form-label">Descripci&oacute;n</label>
                     <input class="form-control" @bind="@Producto.Descripcion" />
                 </div>
 
@@ -41,8 +42,8 @@
                 </div>
 
                 <div>
-                    <label class="form-label">Valor Inventario</label >
-                    <input class="form-control" @bind="@Producto.ValorInventario" readonly/>
+                    <label class="form-label">Valor Inventario</label>
+                    <input class="form-control" @bind="@Producto.ValorInventario" readonly />
                 </div>
 
 
@@ -53,7 +54,7 @@
             <div class="form-group text-center" display: inline-block>
                 <button type="button" class="btn btn-lg btn-primary" @onclick="Nuevo">
                     <i class="oi oi-file mr-2" />
-                     Nuevo
+                    Nuevo
                 </button>
                 <button type="submit" class="btn btn-lg btn-success">
                     <i class="oi oi-account-login mr-2" style="transform:rotate(90deg)" />
@@ -81,7 +82,6 @@
 
         Nuevo();
 
-        Buscar();
 
     }
 
@@ -102,9 +102,19 @@
 
     public void Guardar()
     {
-        bool guardo;
+        bool guardo = true ;
+
+        Producto.ValorInventario = Producto.Costo * Producto.Existencia;
+
 
         guardo = ProductosBLL.Guardar(Producto);
+
+        if(Producto.Costo <= 0)
+        {
+            guardo = false;
+        }
+        
+
 
         if (guardo)
         {

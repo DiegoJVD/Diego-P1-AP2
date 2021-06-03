@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diego_P1_AP2.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210602232728_Inicial")]
+    [Migration("20210602235125_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,8 +30,8 @@ namespace Diego_P1_AP2.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Existencia")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Existencia")
+                        .HasColumnType("REAL");
 
                     b.Property<float>("ValorInventario")
                         .HasColumnType("REAL");

@@ -16,7 +16,7 @@ namespace Diego_P1_AP2.Models
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "Es Obligatorio introducir la Existencia")]
-        public int Existencia { get; set; }
+        public float Existencia { get; set; }
 
         [Required(ErrorMessage = "Es Obligatorio introducir el costo")]
         public float Costo { get; set; }

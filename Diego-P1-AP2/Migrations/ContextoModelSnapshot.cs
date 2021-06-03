@@ -28,8 +28,8 @@ namespace Diego_P1_AP2.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Existencia")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Existencia")
+                        .HasColumnType("REAL");
 
                     b.Property<float>("ValorInventario")
                         .HasColumnType("REAL");
