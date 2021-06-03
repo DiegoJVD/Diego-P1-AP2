@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Diego_P1_AP2.Models;
 using Diego_P1_AP2.DAL;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Diego_P1_AP2.BLL
 {
@@ -134,6 +135,25 @@ namespace Diego_P1_AP2.BLL
             }
 
             return found;
+        }
+
+        public static List<Productos> GetList(Expression<Func<Productos, bool>> producto)
+        {
+            List<Productos> Lista = new List<Productos>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                Lista = contexto.Producto.Where(producto).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Lista;
         }
 
 

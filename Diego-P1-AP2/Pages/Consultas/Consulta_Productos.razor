@@ -1,0 +1,74 @@
+﻿
+@page "/Consulta_productos"
+@inject IToastService toast
+
+@inject NavigationManager Nav
+
+@inject IJSRuntime Confirmacion
+
+<EditForm Model="Productos" OnValidSubmit="Buscar">
+    <DataAnnotationsValidator />
+
+    <div class="card ">
+        <div class="card-header">
+            <h3>Consulta de Productos</h3>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descripción</th>
+                    <th>Existencia</th>
+                    <th>Costo</th>
+                    <th>Valor Inventario</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Productos)
+                {
+                    <tr>
+                        <td>@item.ProductoId</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.Existencia</td>
+                        <td>@item.Costo</td>
+                        <td>@item.ValorInventario</td>
+
+                        <td>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="card-footer">
+
+           
+
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private List<Productos> Productos = new List<Productos>() { };
+
+    protected override void OnInitialized()
+    {
+        Buscar();
+    }
+
+    private void Buscar()
+    {
+        var encontrado = ProductosBLL.GetList(c => true);
+        if (encontrado != null)
+            this.Productos = encontrado;
+    }
+
+    void Editar(int id)
+    {
+     
+    }
+
+}
+
